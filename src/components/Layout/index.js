@@ -12,14 +12,14 @@ const Layout = () => {
   return (
     <div className={styles.container}>
       <Header />
-      <Switch>
+      {/* <Switch>
         <Route exact path="/home" component={Home} />
         <Route exact path="/products" component={Products} />
         <Route path="/products/form" component={ProductsForm} />
         <Route path="/products/:id" component={ProductsForm} />
         <Route exact path="/">
         </Route>
-      </Switch>
+      </Switch> */}
       <Footer />
     </div>
   );
