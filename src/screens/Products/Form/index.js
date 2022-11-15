@@ -36,18 +36,19 @@ const Form = (props) => {
       setFormText('Update Product');
       setValue("name", product.name);
       setValue("description", product.description);
-      setValue("price", product.price['$numberDecimal']);
+      setValue("price", product.price);
       setValue("stock", product.stock);
+      setValue("category", product.category);
     }
   }, [product]);
 
   const onSubmit = async (event) => {
     if (formMode) {
-      dispatch(postProducts(event.name, event.description, event.price, event.stock));
+      dispatch(postProducts(event.name, event.description, event.price, event.stock, event.category));
       window.location.reload();
 
     } else {
-      dispatch(editProducts(id, event.name, event.description, event.price, event.stock));
+      dispatch(editProducts(id, event.name, event.description, event.price, event.stock, event.category));
       props.history.push('/products');
       window.location.reload();
     }
@@ -121,6 +122,18 @@ const Form = (props) => {
               />
               {errors.stock?.type === 'required' && <p className={styles.fail}>Stock is required</p>}
               {errors.stock?.type === 'min' && <p className={styles.fail} >Min is 1</p>}
+            </div>
+            <div>
+              <label>Category</label>
+              <Input
+                register={register}
+                nameRegister={'category'}
+                requiredMany={{ required: true, maxLength: 50, pattern: /(^$)|[a-zA-Z0-9]/ }}
+                placeholder={'Category'}
+              />
+              {errors.category?.type === 'required' && <p className={styles.fail}>Category is required</p>}
+              {errors.category?.type === 'maxLength' && <p className={styles.fail} >MaxLength is 50</p>}
+              {errors.category?.type === 'pattern' && <p className={styles.fail} >Spaces are not allowed</p>}
             </div>
             <div className={styles.cardButton}>
               <div>

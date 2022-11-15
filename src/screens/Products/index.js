@@ -71,6 +71,7 @@ const Products = (props) => {
                 <th className={styles.textLeft}>Description</th>
                 <th className={styles.textLeft}>Price USD</th>
                 <th className={styles.textLeft}>Stock</th>
+                <th className={styles.textLeft}>Category</th>
                 <th className={styles.button}></th>
               </tr>
             </thead>
@@ -82,6 +83,7 @@ const Products = (props) => {
                     <td className={styles.textLeft}>{product.description}</td>
                     <td className={styles.textLeft}>$ {product.price}</td>
                     <td className={styles.textLeft}>{product.stock}</td>
+                    <td className={styles.textLeft}>{product.category}</td>
                     <td className={styles.buttons}>
                       <Link to={`/products/${product._id}`}>
                         <button className={styles.update}>
