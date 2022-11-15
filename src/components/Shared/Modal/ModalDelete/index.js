@@ -1,7 +1,7 @@
 import styles from './modal.module.css';
 import Button from '../../Button/index';
 import { useDispatch } from 'react-redux';
-import { deleteProducts } from '../../../../store/products/thunks';
+import { deleteProducts } from '../../../../redux/products/thunks';
 
 const Modal = (props) => {
   const dispatch = useDispatch();

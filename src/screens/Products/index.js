@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { getProducts } from '../../store/products/thunks';
+import { getProducts } from '../../redux/products/thunks';
 import styles from './products.module.css';
-import ModalDelete from '../../components/Shared/Modal/ModalDelete';
+import ModalDelete from '../../Components/Shared/Modal/ModalDelete';
 
 const Products = (props) => {
   const [showModal, setShowModal] = useState(false);
@@ -80,7 +80,7 @@ const Products = (props) => {
                   <tr key={product._id}>
                     <td className={styles.textLeft}>{product.name}</td>
                     <td className={styles.textLeft}>{product.description}</td>
-                    <td className={styles.textLeft}>$ {product.price['$numberDecimal']}</td>
+                    <td className={styles.textLeft}>$ {product.price}</td>
                     <td className={styles.textLeft}>{product.stock}</td>
                     <td className={styles.buttons}>
                       <Link to={`/products/${product._id}`}>

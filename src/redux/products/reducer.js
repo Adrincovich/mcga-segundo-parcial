@@ -14,7 +14,7 @@ import {
     EDIT_PRODUCTS_ERROR,
     EDIT_PRODUCTS_PENDING,
     EDIT_PRODUCTS_SUCCESS
-} from './types';
+} from './constants';
 
 const INITIAL_STATE = {
     isPending: false,
