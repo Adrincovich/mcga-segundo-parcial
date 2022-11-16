@@ -23,12 +23,12 @@ export const getProducts = () => {
       const response = await fetch('https://mcga-2022-backend-tm.vercel.app/api/products');
       const json = await response.json();
       if(response.status !== 200 ){
-        dispatch(getProductsError(json.toString()))
+        dispatch(getProductsError(json))
       }else {
         dispatch(getProductsSuccess(json));
       }
     } catch (error) {
-      dispatch(getProductsError(error.toString()));
+      dispatch(getProductsError(error));
     }
   };
 };
@@ -40,12 +40,12 @@ export const getByIdProducts = (id) => {
       const response = await fetch(`https://mcga-2022-backend-tm.vercel.app/api/products/${id}`);
       const json = await response.json();
       if(response.status !== 200 ){
-        dispatch(getByIdProductsError(json.toString()))
+        dispatch(getByIdProductsError(json))
       }else {
         dispatch(getByIdProductsSuccess(json));
       }
     } catch (error) {
-      dispatch(getByIdProductsError(error.toString()));
+      dispatch(getByIdProductsError(error));
     }
   };
 };
@@ -58,14 +58,13 @@ export const deleteProducts = (id) => {
         method: 'DELETE'
       });
       const json = await response.json();
-      if(response.status !== 200 ){
-        dispatch(deleteProductsError(json.toString()));
-      }else {
+      if(response.status !== 200 ) throw new Error(json)
         dispatch(deleteProductsSuccess(json));
-      }
-    } catch (error) {
-      dispatch(deleteProductsError(error.toString()));
-    }
+        dispatch(getProducts());
+
+     } catch (error) {
+       dispatch(deleteProductsError());
+     }
   };
 };
 
@@ -90,14 +89,13 @@ export const postProducts = (name,description,price,stock,category) => {
         const json = await response.json();
         if (response.status === 201) {
           dispatch(postProductsSuccess(json));
+          dispatch(getProducts());
           console.log('Product added');
         } else {
           dispatch(postProductsError(json));
-          console.log('Product could not be Added.');
         }
       } catch (error) {
-        dispatch(postProductsError(error.toString()));
-        console.log('Product could not be Added.');
+        dispatch(postProductsError(error));
       }
   };
 };
@@ -123,14 +121,11 @@ export const editProducts = (id,name,description,price,stock,category) => {
         const json = await response.json();
         if (response.status === 200) {
           dispatch(editProductsSuccess(json));
-          console.log('Product Added.');
         } else {
           dispatch(editProductsError(json));
-          console.log('Product could not be Added.');
         }
       } catch (error) {
-        dispatch(editProductsError(error.toString()));
-        console.log('Product could not be Added.');
+        dispatch(editProductsError(error));
       }
   };
 };
