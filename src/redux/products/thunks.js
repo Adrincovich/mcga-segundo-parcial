@@ -23,12 +23,12 @@ export const getProducts = () => {
       const response = await fetch('https://mcga-2022-backend-tm.vercel.app/api/products');
       const json = await response.json();
       if(response.status !== 200 ){
-        dispatch(getProductsError(json))
+        dispatch(getProductsError(json.toString()))
       }else {
         dispatch(getProductsSuccess(json));
       }
     } catch (error) {
-      dispatch(getProductsError());
+      dispatch(getProductsError(error.toString()));
     }
   };
 };
@@ -40,12 +40,12 @@ export const getByIdProducts = (id) => {
       const response = await fetch(`https://mcga-2022-backend-tm.vercel.app/api/products/${id}`);
       const json = await response.json();
       if(response.status !== 200 ){
-        dispatch(getByIdProductsError(json))
+        dispatch(getByIdProductsError(json.toString()))
       }else {
         dispatch(getByIdProductsSuccess(json));
       }
     } catch (error) {
-      dispatch(getByIdProductsError());
+      dispatch(getByIdProductsError(error.toString()));
     }
   };
 };
@@ -58,13 +58,13 @@ export const deleteProducts = (id) => {
         method: 'DELETE'
       });
       const json = await response.json();
-      if(response.status !== 202 ){
-        dispatch(deleteProductsError(json))
+      if(response.status !== 200 ){
+        dispatch(deleteProductsError(json.toString()));
       }else {
         dispatch(deleteProductsSuccess(json));
       }
     } catch (error) {
-      dispatch(deleteProductsError());
+      dispatch(deleteProductsError(error.toString()));
     }
   };
 };
@@ -89,9 +89,10 @@ export const postProducts = (name,description,price,stock,category) => {
         });
         const json = await response.json();
         if (response.status === 201) {
-          dispatch(postProductsSuccess(json.data));
+          dispatch(postProductsSuccess(json));
           console.log('Product added');
         } else {
+          dispatch(postProductsError(json));
           console.log('Product could not be Added.');
         }
       } catch (error) {
@@ -105,7 +106,7 @@ export const editProducts = (id,name,description,price,stock,category) => {
   return async (dispatch) => {
     dispatch(editProductsPending());
     try {
-      const response = await fetch(`https://mcga-2022-backend.vercel-tm.app/api/products/update/${id}`,{
+      const response = await fetch(`https://mcga-2022-backend-tm.vercel.app/api/products/${id}`,{
           method: 'PUT',
           headers: {
             Accept: 'application/json',
@@ -120,10 +121,11 @@ export const editProducts = (id,name,description,price,stock,category) => {
           })
         });
         const json = await response.json();
-        if (response.status === 202) {
-          dispatch(editProductsSuccess(json.data));
+        if (response.status === 200) {
+          dispatch(editProductsSuccess(json));
           console.log('Product Added.');
         } else {
+          dispatch(editProductsError(json));
           console.log('Product could not be Added.');
         }
       } catch (error) {
