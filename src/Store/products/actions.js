@@ -18,7 +18,7 @@ import {
     MESSAGE_MODAL_CLOSE,
     CONFIRM_MODAL_OPEN,
     CONFIRM_MODAL_CLOSE
-} from './constants';
+} from './types';
 
 export const getProductsPending = () => {
   return {

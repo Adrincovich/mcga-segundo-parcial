@@ -18,7 +18,7 @@ import {
     MESSAGE_MODAL_CLOSE,
     CONFIRM_MODAL_OPEN,
     CONFIRM_MODAL_CLOSE
-} from './constants';
+} from './types';
 
 const INITIAL_STATE = {
     isLoading: false,
