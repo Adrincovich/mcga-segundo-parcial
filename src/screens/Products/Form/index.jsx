@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './form.module.css';
 import Input from '../../../Components/Shared/Input';
+import Select from '../../../Components/Shared/Select';
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm } from "react-hook-form";
 import { getByIdProducts, postProducts, editProducts, getProducts } from '../../../Store/products/thunks';
@@ -135,15 +136,14 @@ const Form = (props) => {
             </div>
             <div>
               <label>Category</label>
-              <Input
+              <Select
                 register={register}
                 nameRegister={'category'}
-                requiredMany={{ required: true, maxLength: 50, pattern: /(^$)|[a-zA-Z0-9]/ }}
+                requiredMany={{ required: true}}
                 placeholder={'Category'}
               />
+
               {errors.category?.type === 'required' && <p className={styles.fail}>Category is required</p>}
-              {errors.category?.type === 'maxLength' && <p className={styles.fail} >MaxLength is 50</p>}
-              {errors.category?.type === 'pattern' && <p className={styles.fail} >Spaces are not allowed</p>}
             </div>
             <div className={styles.cardButton}>
               <div>
