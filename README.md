@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# MCGA Segundo Parcial
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Estudiante:** Drincovich Adrián<br>
+**Carrera:** Ingenieria en Sistemas<br>
+**Commisión:** 4-A<br>
+**Turno:** Mañana<br>
 
-## Available Scripts
 
-In the project directory, you can run:
+## Enunciado del Parcial 📋
+Desarrollar una aplicación web que cumpla con los siguientes requisitos:
+- Debe estar desarrollada con React utilizando el CLI de create-react-app.
+- Contar con una lista de recursos siguiendo la lógica de un ABM.
+- Debe contar con una librería para el manejo de formularios. (React-hook-form)
+- Debe contar con un layout, el cual debe contener:
+ - Header
+ - NavBar (barra de navegación)
+ - Body o contenido
+ - Footer
+- Debe contar con más de 1 ruta navegable.
+- La app debe tener AL MENOS 2 pantallas:
+ - Home: Esta debe contar con los nombres de los integrantes y el nombre de la
+aplicación. Es básicamente para poder probar el ruteo de la aplicación.
+ - Recurso: en esta pantalla deberán mostrar la lista de recursos con la lógica del
+AMB para poder evidenciar la navegación dentro de la app.
+- Debe contar con componentes tanto para el Header, Body y Footer, como también un
+componente para la lista del recurso. A su vez, estos componentes deben utilizar
+componentes compartidos, como ser: botones, inputs. Estos componentes deben contar
+con sus archivos .css, preferentemente utilizando CSS modules.
+- Debe contar con formularios a la hora de realizar un POST, un DELETE o un UPDATE
+de un nuevo recurso a la lista.
+- Cada formulario debe contar con las validaciones correspondientes para evitar agregar
+nuevos recursos con datos erróneos o sin datos.
+- Debe ser posible realizar las diferentes request (GET, POST, PUT, DELETE) desde el
+ABM de cada recurso.
+- Debe contar con un archivo donde se haga la configuración inicial del store de Redux.
+- Debe contar con un reducer por cada recurso y un rootReducer.
+- Debe contar con un archivo de actions por cada recurso.
+- Debe contar con un archivo de types (constantes) para las actions.
+- Debe contar con el uso de action creators utilizando la librería Redux Thunk, los cuales
+son necesarios para realizar la conexión del FE con el BE. Para esto, deberán utilizar la
+API suministrada al final de este documento.
+- Debe contar con un readme con los pasos a seguir para poder ejecutar correctamente la
+aplicación, URL del repositorio y nombre del alumno.
+- El repositorio debe contener código prolijo, segmentado en commits (mínimo 3
+commits).
 
-### `npm start`
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Instalar dependencias
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    npm install
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Correr Aplicacion
 
-### `npm run build`
+    npm start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[http://localhost:3000](http://localhost:3000).
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Construido con 🛠️
+- JavaScript ES6
+- React Js
+- Redux
+- Thunk
+- React Hook Form
+- NPM
+- Git
